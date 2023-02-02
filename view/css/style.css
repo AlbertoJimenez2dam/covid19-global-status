@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    background-image: url("../img/covid.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-size: 15px;
+    font-family: Arial, monospace;
+    color: #FFFFFF;
+    line-height: 1.25;
+}
+
+a {
+    color: white;
+}
+
+section {
+    overflow: hidden;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px 5px black;
+    background-color: #222244CF;
+    vertical-align: middle;
+}
+
+section header, section footer {
+    margin: -10px;
+    padding: 5px 10px;
+    color: #EAEAEA;
+    background-color: #7443649F;
+    text-align: center;
+    font-weight: bold;
+}
+
+section header {
+    margin-bottom: 10px;
+}
+
+section footer {
+    margin-top: 10px;
+}
+
+section textarea {
+    width: calc(100% - 10px);
+    background-color: #FFFFFF;
+}
+
+section div.quote {
+    border: 1px solid #9E9E9E;
+    padding: 10px;
+    background-color: #AEAEFF3F;
+    color: #EEEEEE;
+}
