@@ -3,6 +3,8 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     
+    //error_reporting(0);
+    
     require_once('controller/covid.php');
     
     $covid = new Covid();
@@ -19,7 +21,7 @@
         $country = $covid -> read($currentCountry);
         
         if ($country == null) {
-            echo 'Country ' . $currentCountry . ' not found.';
+            echo '<br>Data for requested country not available.';
         } else {
             $updatedCountry = $covid -> register($country);
             

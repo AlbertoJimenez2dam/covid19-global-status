@@ -4,7 +4,6 @@
     class Covid {
         private $apiEndPoint = 'https://covid-19.dataflowkit.com/v1/';
         private $covidData = 'data/covid_retrieved.json';
-        private $serializedCovidData = 'data/covid_serialized.json';
         
         /*
          * Rewrites the full local JSON data file using the API data objects.
@@ -29,7 +28,7 @@
             $url = $this->apiEndPoint . $countryName;
             
             $data = json_decode(file_get_contents($url), JSON_OBJECT_AS_ARRAY);
-            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
             if ($data['Country_text'] != null) {
                 return new Country($data);
             } else {
@@ -62,8 +61,7 @@
                     }
                     
                     $localData[$i] = $country;
-                    
-                    file_put_contents($this->serializedCovidData, serialize($localData));
+                    file_put_contents($this->covidData, json_encode($localData));
                     
                     return $country;
                 }
@@ -74,7 +72,15 @@
          * Returns an array containing every country using data from the local JSON file.
          */
         public function readAll() {
-            return unserialize(file_get_contents($this->serializedCovidData));
+            $data = json_decode(file_get_contents($this->covidData), JSON_OBJECT_AS_ARRAY);
+            
+            $countries = array();
+            
+            foreach ($data as $thisCountry) {
+                array_push($countries, new Country($thisCountry));
+            }
+            
+            return $countries;
         }
     }
 ?>

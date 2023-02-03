@@ -16,7 +16,7 @@
 		</header>
 		Statistics about current and total COVID-19 levels around the world.<br>
 		Data from <a href="https://covid-19.dataflowkit.com/" target="_blank">DataflowKit</a>.<br><br>
-		<a href="TODO" target="_blank">Source code (GitHub)</a>
+		<a href="https://github.com/AlbertoJimenez2dam/covid19-global-status" target="_blank">Source code (GitHub)</a>
 		<br><br>
 		<form method="get" action="" id="form">
             <select name="country">
