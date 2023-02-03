@@ -7,7 +7,7 @@
         private $serializedCovidData = 'data/covid_serialized.json';
         
         /*
-         * Rewrites the full local JSON data file using the API data objects.
+         * Rewrites the full local data JSON file using the API data objects.
          */
         public function rewriteAll() {
             $data = json_decode(file_get_contents($this->covidData), JSON_OBJECT_AS_ARRAY);
@@ -38,18 +38,18 @@
         }
         
         /*
-         * Returns the specified country using data from the local JSON file.
+         * Returns the specified country using data from the local serialized JSON file.
          */
         public function readPrevious($countryName) {
             foreach ($this -> readAll() as $thisCountry) {
                 if ($thisCountry -> getCountry() == $countryName) {
-                    return new Country($thisCountry);
+                    return $thisCountry;
                 }
             }
         }
         
         /*
-         * Rewrites the specified country data in the local JSON file.
+         * Rewrites the specified country data in the local serialized JSON file.
          * Returns the country if the country date does not match; null otherwise.
          */
         public function register($country) {
@@ -71,7 +71,7 @@
         }
         
         /*
-         * Returns an array containing every country using data from the local JSON file.
+         * Returns an array containing every country using data from the local serialized JSON file.
          */
         public function readAll() {
             return unserialize(file_get_contents($this->serializedCovidData));
